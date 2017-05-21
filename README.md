@@ -15,9 +15,8 @@ Or from the Wikipedia article I think the most relevant explanation is:
 * ABAP 7.4+
 
 # Within it you'll find:
-* $ABAP_KOANS: this package contains everything and is the main entrypoint
-* $ABAP_KOANS_EXERCISES within these subpackage all exercises are available
-* Navigate to the lowest packages and open the global classes. Run the ABAP Unit Tests with the shortkey CTRL+SHIFT+F10 and solve step by step the ongoing challenges
+* $ABAP_KOANS: this package contains everything and is the main entrypoint.
+* Navigate to the the global classes and go to the 'local Testclass section'. Run the ABAP Unit Tests with the shortcut CTRL+SHIFT+F10 and solve step by step the ongoing challenges.
 
 # Installation
 * Download this repository as a zip
