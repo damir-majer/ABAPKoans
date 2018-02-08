@@ -169,7 +169,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD assert_table_contains.
-    TYPES tyt_integer TYPE TABLE OF i WITH NON-UNIQUE KEY table_line.
+    TYPES tyt_integer TYPE STANDARD TABLE OF i WITH NON-UNIQUE KEY table_line.
     DATA(dref) = NEW tyt_integer( ( 1 ) ( 2 ) ( 3 ) ).
     ASSIGN dref->* TO FIELD-SYMBOL(<itab>).
 
@@ -182,7 +182,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD assert_table_not_contains.
-    TYPES tyt_integer TYPE TABLE OF i WITH NON-UNIQUE KEY table_line.
+    TYPES tyt_integer TYPE STANDARD TABLE OF i WITH NON-UNIQUE KEY table_line.
     DATA(dref) = NEW tyt_integer( ( 1 ) ( 2 ) ( 3 ) ).
     ASSIGN dref->* TO FIELD-SYMBOL(<itab>).
 
