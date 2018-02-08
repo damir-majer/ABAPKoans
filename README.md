@@ -1,4 +1,4 @@
-![alt text](https://s3.eu-central-1.amazonaws.com/abapkoans/ABAPKoans.jpg)
+![alt text](https://s3.eu-central-1.amazonaws.com/abapkoans/ABAPKoans.png)
 
 # What are ABAP Koans?
 
