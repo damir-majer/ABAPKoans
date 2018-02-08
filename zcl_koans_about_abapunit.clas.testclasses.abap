@@ -7,8 +7,6 @@ CLASS lcl_about_abapunit DEFINITION FINAL FOR TESTING
     METHODS:
       "! We shall contemplate truth by testing reality, via asserts.
       assert_true FOR TESTING,
-      "! Sometimes we will ask you to fill in the values.
-      fill_in_values FOR TESTING,
       "! Ensure the validity of the reference
       assert_bound FOR TESTING,
       "! Ensure that character string fits to simple pattern
@@ -64,7 +62,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_char_cp(
       act              = |abcd|
       exp              = || "this should be replaced properly
-      msg              = 'Sometimes you need to make some Objects alive... Just think about the reference'
+      msg              = |Do you really think you match the pattern?|
       quit             = default_control_flow ) .
 
   ENDMETHOD.
@@ -74,7 +72,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_char_np(
       act  = ||
       exp  = || "this should be replaced properly
-      msg  = ||
+      msg  = |Wow, could it be possible that this fails on basis of difference|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -84,7 +82,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_differs(
       act              = ||
       exp              = || "this should be replaced properly
-      msg              = ||
+      msg              = |Here should something be different...|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -94,7 +92,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals(
       act =  1
       exp =  || "this should be replaced properly
-      msg  = ||
+      msg  = |It´s easy to identify when values should be equal|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -105,7 +103,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals_float(
       act  =  float_value
       exp  =  CONV decfloat16( 2 ) "this should be replaced properly
-      msg  = ||
+      msg  = |Nearly same isn´t same!|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -114,7 +112,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_false(
       act  =  |X|  "this should be replaced properly
-      msg  =  ||
+      msg  =  |Like the prior koan. Ponder if you will, the power of simple assertions when verifying an object's behavior|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -123,7 +121,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_initial(
       act  = |X|  "this should be replaced properly
-      msg  = ||
+      msg  = |Hey come on... initial means INITIAL|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -135,7 +133,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_not_bound(
       act  =  book_ref
-      msg  =  ||
+      msg  =  |There are times when something should not be null, and this assertion can prove that|
       quit = default_control_flow ) .
 
   ENDMETHOD.
@@ -144,7 +142,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_not_initial(
       act  =  || "this should be replaced properly
-      msg  =  ||
+      msg  =  |Hey come on... NOT initial means NOT INITIAL|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -155,7 +153,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
       lower  = 1
       upper  = 3
       number = 4 "this should be replaced properly
-      msg    = ||
+      msg    = |Ok, you´re kidding...Find the number hat is in between the others|
       quit   = default_control_flow ).
 
   ENDMETHOD.
@@ -165,7 +163,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_subrc(
       exp  = 1
       act  = sy-subrc "this should be replaced properly
-      msg  = ||
+      msg  = |Yes, I know this assertin could be improved...Just check if sy-subrc contains the necessary value|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -178,7 +176,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_table_contains(
       line  = || "this should be replaced properly
       table = <itab>
-      msg   = ||
+      msg   = |The line should contain something that´s in the table|
       quit  = default_control_flow ).
 
   ENDMETHOD.
@@ -191,7 +189,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_table_not_contains(
       line             = 3 "this should be replaced properly
       table            = <itab>
-      msg              = ||
+      msg              = |The line should contain something that´s NOT in the table|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -201,7 +199,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_text_matches(
         pattern          = |\\D|
         text             = |123| "this should be replaced properly
-        msg              = ||
+        msg              = |Welcome to regular expressions... find out what the pattern means|
         quit = default_control_flow ).
 
   ENDMETHOD.
@@ -212,7 +210,7 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_that(
       act              =   || "this should be replaced properly
       exp              =   abap_koans_constraint
-      msg              =   ||
+      msg              =   |Hey just look at the constraint class...then you will figure out the expeted value|
       quit = default_control_flow ).
 
   ENDMETHOD.
@@ -222,15 +220,6 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
     cl_abap_unit_assert=>assert_true(
       act  = || "this should be replaced properly
       msg  = |The \|\| are an attempt to communicate the need to fill in an answer|
-      quit = default_control_flow ).
-
-  ENDMETHOD.
-
-  METHOD fill_in_values.
-
-    cl_abap_unit_assert=>assert_equals(
-      exp  = 1 + 1
-      act  = VALUE i(  ) "this should be replaced properly
       quit = default_control_flow ).
 
   ENDMETHOD.
