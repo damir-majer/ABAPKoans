@@ -1,3 +1,5 @@
+[logo]: https://s3.eu-central-1.amazonaws.com/abapkoans/ABAPKoans.jpg "ABAP Koans"
+
 # ABAP Koans
 ABAP Koans source code.
 
