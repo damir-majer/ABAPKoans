@@ -1,9 +1,6 @@
 ![alt text](https://s3.eu-central-1.amazonaws.com/abapkoans/ABAPKoans.jpg)
 
-# ABAP Koans
-ABAP Koans source code.
-
-# What are Koans?
+# What are ABAP Koans?
 
 Essentially a Koan is a problem to solve.
 
