@@ -11,11 +11,14 @@ Or from the Wikipedia article I think the most relevant explanation is:
 > For this I am borrowing from the idea of the original Ruby Koans which involves the practitioner fixing a number of broken unit tests. Using a unit test framework allows for rapid feedback of the topics being discussed and using an IDE we can easily insert breakpoints to explore the code at run-time.
 
 # System requirements
-* If you have an ABAP 7.4+ System than please use the 'master' branch. 
+* ABAP 7.4+
 * If you have an ABAP System between 7.02 and 7.31 please use the '7.02-7.31' branch.
 
 # Contribution to different ABAP Stacks
-The 'master' and the '7.02-7.31' branch never will be merged together!
+* The 'master' and the '7.02-7.31' branch never will be merged together!
+
+* If you have an ABAP 7.4+ System than please use the 'master' branch. 
+* If you have an ABAP System between 7.02 and 7.31 please use the '7.02-7.31' branch.
 
 # Within it you'll find:
 * $ABAP_KOANS: this package contains everything and is the main entrypoint.
