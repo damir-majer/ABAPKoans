@@ -1,4 +1,5 @@
 *"* use this source file for your ABAP unit test classes
+* Koans for ABAP Stack between 7.02 and 7.31
 CLASS lcl_about_abapunit DEFINITION FINAL FOR TESTING
   DURATION SHORT
   RISK LEVEL HARMLESS.
