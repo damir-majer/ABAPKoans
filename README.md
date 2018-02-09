@@ -17,6 +17,9 @@ Or from the Wikipedia article I think the most relevant explanation is:
 # Contribution to different ABAP Stacks
 * The 'master' and the '7.02-7.31' branch never will be merged together!
 
+* If you have an ABAP 7.4+ System than please use the 'master' branch. 
+* If you have an ABAP System between 7.02 and 7.31 please use the '7.02-7.31' branch.
+
 # Within it you'll find:
 * $ABAP_KOANS: this package contains everything and is the main entrypoint.
 * Navigate to the the global classes and go to the 'local Testclass section'. Run the ABAP Unit Tests with the shortcut CTRL+SHIFT+F10 and solve step by step the ongoing challenges.
