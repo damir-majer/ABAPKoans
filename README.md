@@ -12,6 +12,10 @@ Or from the Wikipedia article I think the most relevant explanation is:
 
 # System requirements
 * ABAP 7.4+
+* If you have an ABAP System between 7.02 and 7.31 please use the '7.02-7.31' branch.
+
+# Contribution to different ABAP Stacks
+* The 'master' and the '7.02-7.31' branch never will be merged together!
 
 # Within it you'll find:
 * $ABAP_KOANS: this package contains everything and is the main entrypoint.
