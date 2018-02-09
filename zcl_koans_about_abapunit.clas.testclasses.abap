@@ -48,10 +48,10 @@ ENDCLASS.
 CLASS lcl_about_abapunit IMPLEMENTATION.
 
   METHOD assert_bound.
-    DATA: book_ref TYPE REF TO cl_book_ppf.
+    DATA helper_ref TYPE REF TO lcl_helper.
 
     cl_abap_unit_assert=>assert_bound(
-      act              = book_ref
+      act              = helper_ref
       msg              = |Sometimes you need to make some Objects alive... Just think about the reference|
       quit             = default_control_flow ).
 
@@ -98,11 +98,12 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD assert_equals_float.
-    DATA: float_value TYPE decfloat16 VALUE '1.9'.
+    DATA float_value TYPE decfloat16 VALUE '1.9'.
+    DATA float_value_exp TYPE decfloat16 VALUE '2.0'.
 
     cl_abap_unit_assert=>assert_equals_float(
       act  =  float_value
-      exp  =  CONV decfloat16( 2 ) "this should be replaced properly
+      exp  =  float_value_exp "this should be changed somehow
       msg  = |Nearly same isn´t same!|
       quit = default_control_flow ).
 
@@ -127,12 +128,11 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD assert_not_bound.
-    DATA: book_ref TYPE REF TO cl_book_ppf.
-
-    book_ref = NEW #( ). "Here should something be done
+    DATA helper_ref TYPE REF TO lcl_helper.
+    CREATE OBJECT helper_ref. "Here should something be done
 
     cl_abap_unit_assert=>assert_not_bound(
-      act  =  book_ref
+      act  =  helper_ref
       msg  =  |There are times when something should not be null, and this assertion can prove that|
       quit = default_control_flow ) .
 
@@ -170,8 +170,12 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
   METHOD assert_table_contains.
     TYPES tyt_integer TYPE STANDARD TABLE OF i WITH NON-UNIQUE KEY table_line.
-    DATA(dref) = NEW tyt_integer( ( 1 ) ( 2 ) ( 3 ) ).
-    ASSIGN dref->* TO FIELD-SYMBOL(<itab>).
+    DATA dref TYPE REF TO data.
+    FIELD-SYMBOLS <itab> TYPE tyt_integer.
+
+    CREATE DATA dref TYPE tyt_integer.
+    ASSIGN dref->* TO <itab>.
+    DO 3 TIMES. APPEND sy-index TO <itab>. ENDDO.
 
     cl_abap_unit_assert=>assert_table_contains(
       line  = || "this should be replaced properly
@@ -183,8 +187,12 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
   METHOD assert_table_not_contains.
     TYPES tyt_integer TYPE STANDARD TABLE OF i WITH NON-UNIQUE KEY table_line.
-    DATA(dref) = NEW tyt_integer( ( 1 ) ( 2 ) ( 3 ) ).
-    ASSIGN dref->* TO FIELD-SYMBOL(<itab>).
+    DATA dref TYPE REF TO data.
+    FIELD-SYMBOLS <itab> TYPE tyt_integer.
+
+    CREATE DATA dref TYPE tyt_integer.
+    ASSIGN dref->* TO <itab>.
+    DO 3 TIMES. APPEND sy-index TO <itab>. ENDDO.
 
     cl_abap_unit_assert=>assert_table_not_contains(
       line             = 3 "this should be replaced properly
@@ -205,7 +213,8 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD assert_that.
-    DATA(abap_koans_constraint) = NEW lcl_koans_demo_constraint( ).
+    DATA abap_koans_constraint TYPE REF TO lcl_koans_demo_constraint.
+    CREATE OBJECT abap_koans_constraint.
 
     cl_abap_unit_assert=>assert_that(
       act              =   || "this should be replaced properly
