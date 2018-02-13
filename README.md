@@ -29,7 +29,7 @@ Or from the Wikipedia article I think the most relevant explanation is:
 * Create a package `$ASE_KOANS`
 * Install [abapGit](https://github.com/larshp/abapGit). How to:
     * Create a program `ZABAPGIT` in transaction SE38
-    * Copy and paste the content from [latest abapGit build](https://raw.githubusercontent.com/larshp/abapGit/build/zabapgit.abap)
+    * Copy and paste the content from [latest abapGit build](https://raw.githubusercontent.com/abapGit/build/master/zabapgit.abap)
 * Run ZABAPGIT
   * Create an offline project by click `+Offline`
     * Name: ABAP Koans
