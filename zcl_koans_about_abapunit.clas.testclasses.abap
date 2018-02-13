@@ -6,8 +6,8 @@ CLASS lcl_about_abapunit DEFINITION FINAL FOR TESTING
 
   PRIVATE SECTION.
     METHODS:
-      "! We shall contemplate truth by testing reality, via asserts.
-      assert_true FOR TESTING,
+*      "! We shall contemplate truth by testing reality, via asserts.
+*      assert_true FOR TESTING,
       "! Ensure the validity of the reference
       assert_bound FOR TESTING,
       "! Ensure that character string fits to simple pattern
@@ -20,8 +20,8 @@ CLASS lcl_about_abapunit DEFINITION FINAL FOR TESTING
       assert_equals  FOR TESTING,
       "! Ensure approximate consistency of 2 floating point numbers
       assert_equals_float FOR TESTING,
-      "! Ensure that boolean equals ABAP_FALSE
-      assert_false  FOR TESTING,
+*      "! Ensure that boolean equals ABAP_FALSE
+*      assert_false  FOR TESTING,
       "! Ensure that data object value is initial
       assert_initial  FOR TESTING,
       "! Ensure invalidity of the reference of a reference variable
@@ -34,8 +34,8 @@ CLASS lcl_about_abapunit DEFINITION FINAL FOR TESTING
       assert_subrc  FOR TESTING,
       "! Ensure that data is contained as line within internal table
       assert_table_contains  FOR TESTING,
-      "! Ensure that data is not contained as line in internal table
-      assert_table_not_contains  FOR TESTING,
+*      "! Ensure that data is not contained as line in internal table
+*      assert_table_not_contains  FOR TESTING,
       "! Ensure that text matches regular expression
       assert_text_matches FOR TESTING,
       "! Ensure that a constraint is met by data object
@@ -110,14 +110,14 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD assert_false.
-
-    cl_abap_unit_assert=>assert_false(
-      act  =  |X|  "this should be replaced properly
-      msg  =  |Like the prior koan. Ponder if you will, the power of simple assertions when verifying an object's behavior|
-      quit = default_control_flow ).
-
-  ENDMETHOD.
+*  METHOD assert_false.
+*
+*    cl_abap_unit_assert=>assert_false(
+*      act  =  |X|  "this should be replaced properly
+*      msg  =  |Like the prior koan. Ponder if you will, the power of simple assertions when verifying an object's behavior|
+*      quit = default_control_flow ).
+*
+*  ENDMETHOD.
 
   METHOD assert_initial.
 
@@ -186,22 +186,22 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD assert_table_not_contains.
-    TYPES tyt_integer TYPE STANDARD TABLE OF i WITH NON-UNIQUE KEY table_line.
-    DATA dref TYPE REF TO data.
-    FIELD-SYMBOLS <itab> TYPE tyt_integer.
-
-    CREATE DATA dref TYPE tyt_integer.
-    ASSIGN dref->* TO <itab>.
-    DO 3 TIMES. APPEND sy-index TO <itab>. ENDDO.
-
-    cl_abap_unit_assert=>assert_table_not_contains(
-      line             = 3 "this should be replaced properly
-      table            = <itab>
-      msg              = |The line should contain something that´s NOT in the table|
-      quit = default_control_flow ).
-
-  ENDMETHOD.
+*  METHOD assert_table_not_contains.
+*    TYPES tyt_integer TYPE STANDARD TABLE OF i WITH NON-UNIQUE KEY table_line.
+*    DATA dref TYPE REF TO data.
+*    FIELD-SYMBOLS <itab> TYPE tyt_integer.
+*
+*    CREATE DATA dref TYPE tyt_integer.
+*    ASSIGN dref->* TO <itab>.
+*    DO 3 TIMES. APPEND sy-index TO <itab>. ENDDO.
+*
+*    cl_abap_unit_assert=>assert_table_not_contains(
+*      line             = 3 "this should be replaced properly
+*      table            = <itab>
+*      msg              = |The line should contain something that´s NOT in the table|
+*      quit = default_control_flow ).
+*
+*  ENDMETHOD.
 
   METHOD assert_text_matches.
 
@@ -225,13 +225,13 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD assert_true.
-
-    cl_abap_unit_assert=>assert_true(
-      act  = || "this should be replaced properly
-      msg  = |The \|\| are an attempt to communicate the need to fill in an answer|
-      quit = default_control_flow ).
-
-  ENDMETHOD.
+*  METHOD assert_true.
+*
+*    cl_abap_unit_assert=>assert_true(
+*      act  = || "this should be replaced properly
+*      msg  = |The \|\| are an attempt to communicate the need to fill in an answer|
+*      quit = default_control_flow ).
+*
+*  ENDMETHOD.
 
 ENDCLASS.
