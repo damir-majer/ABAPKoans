@@ -20,7 +20,7 @@ The 'master' and the '7.02-7.31' branch never will be merged together!
 # Within it you'll find:
 * $ABAP_KOANS: this package contains everything and is the main entrypoint.
 * Navigate to the the global classes and go to the 'local Testclass section'. Run the ABAP Unit Tests with the shortcut CTRL+SHIFT+F10 and solve step by step the ongoing challenges.
-* Changes are **_only_** alowed in local Testclass section (e.g. lcl_koans_demo_constraint should stay like it is)
+* Changes are **_only_** allowed in local Testclass section (e.g. lcl_koans_demo_constraint should stay like it is)
 
 # Installation
 * Download this repository as a zip
