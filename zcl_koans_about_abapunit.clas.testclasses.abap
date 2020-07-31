@@ -41,17 +41,18 @@ CLASS lcl_about_abapunit DEFINITION FINAL FOR TESTING
       assert_that  FOR TESTING.
 
     CONSTANTS:
-       default_control_flow TYPE aunit_flowctrl VALUE if_aunit_constants=>class.
+*       default_control_flow TYPE aunit_flowctrl VALUE if_aunit_constants=>class.
+       default_control_flow TYPE int1 VALUE if_abap_unit_constant=>quit-test.
 
 ENDCLASS.
 
 CLASS lcl_about_abapunit IMPLEMENTATION.
 
   METHOD assert_bound.
-    DATA: book_ref TYPE REF TO cl_book_ppf.
+    DATA: koans_ref TYPE REF TO zcl_koans_about_abapunit.
 
     cl_abap_unit_assert=>assert_bound(
-      act              = book_ref
+      act              = koans_ref
       msg              = |Sometimes you need to make some Objects alive... Just think about the reference|
       quit             = default_control_flow ).
 
@@ -127,12 +128,12 @@ CLASS lcl_about_abapunit IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD assert_not_bound.
-    DATA: book_ref TYPE REF TO cl_book_ppf.
+    data: koans_ref TYPE REF TO zcl_koans_about_abapunit.
 
-    book_ref = NEW #( ). "Here should something be done
+    koans_ref = NEW #( ). "Here should something be done
 
     cl_abap_unit_assert=>assert_not_bound(
-      act  =  book_ref
+      act  =  koans_ref
       msg  =  |There are times when something should not be null, and this assertion can prove that|
       quit = default_control_flow ) .
 
